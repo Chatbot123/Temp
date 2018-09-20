@@ -269,20 +269,7 @@ if($method == 'POST')
 			$speech .= "Which would you prefer?";
 			
 		}
-	else if ($com=='showany')
-	{
-		if(isset($json->queryResult->parameters->show))
-		{	$show= $json->queryResult->parameters->show; } else {$show = '';}
-		$show = str_replace(' ', '', $show);
-		if(strlen($show) > 1)
-		{
-		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL, "https://www.google.com/search?q=$show");
-		curl_setopt($ch, CURLOPT_HEADER, 0);
-		curl_exec($ch);
-		curl_close($ch);			
-		} 
-	}
+	
 	else if ($com=='weather')
 	{
 		if(strlen($CITY) > 1) 

@@ -303,7 +303,7 @@ if($method == 'POST')
 			$speech = "Now the Weather in $CITY is $weather_data , The temperature is $temp F " ;
 			$speech .= "\r\n";
 			$link = 'https://api.openweathermap.org/data/2.5/weather?q='.$CITY.'&appid=4b75f2eaa9f9a62fe7309f06b84b69f9'; // Link goes here!
-			echo $link;
+			//echo $link;
 			$speech .=  "<a href='".$link."'>Link</a>";
 			
 				

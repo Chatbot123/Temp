@@ -273,6 +273,7 @@ if($method == 'POST')
 	{
 		if(isset($json->queryResult->parameters->show))
 		{	$show= $json->queryResult->parameters->show; } else {$show = '';}
+		$show = str_replace(' ', '', $show);
 		if(strlen($show) > 1)
 		{
 		$ch = curl_init();

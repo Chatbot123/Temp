@@ -11,16 +11,16 @@ if($method == 'POST')
 		{	$my_action = $json->queryResult->parameters->myaction; } else {$my_action = "";}
 	
 	if(isset($json->queryResult->action))
-		{	$action = $json->queryResult->action; } else {$action = "";}
+		{	$action = $json->queryResult->action; } else {$action = '0';}
 	
 	
-	if(($com == 'liststates' || $com == 'shoplist' || $com == 'listcity' || $com == 'listfamily' || $com == 'listcategory' || $com == 'listarticle' || $com == 'listyear') && $my_action == 'amountsold' && $action == '')
+	if(($com == 'liststates' || $com == 'shoplist' || $com == 'listcity' || $com == 'listfamily' || $com == 'listcategory' || $com == 'listarticle' || $com == 'listyear') && $my_action == 'amountsold' && $action == '0')
 	{$com = "amountsold";}
 	
-	if(($com == 'liststates' || $com == 'shoplist' || $com == 'listcity' || $com == 'listfamily' || $com == 'listcategory' || $com == 'listarticle' || $com == 'listyear') && $my_action == 'qtysold' && $action == '' )
+	if(($com == 'liststates' || $com == 'shoplist' || $com == 'listcity' || $com == 'listfamily' || $com == 'listcategory' || $com == 'listarticle' || $com == 'listyear') && $my_action == 'qtysold' && $action == '0' )
 	{$com = "qtysold";}
 	
-	if(($com == 'liststates' || $com == 'shoplist' || $com == 'listcity' || $com == 'listfamily' || $com == 'listcategory' || $com == 'listarticle' || $com == 'listyear') && $my_action == 'margin' && $action == '')
+	if(($com == 'liststates' || $com == 'shoplist' || $com == 'listcity' || $com == 'listfamily' || $com == 'listcategory' || $com == 'listarticle' || $com == 'listyear') && $my_action == 'margin' && $action == '0')
 	{$com = "margin";}
 	
 		
@@ -73,7 +73,7 @@ if($method == 'POST')
 		$QTR= strtoupper($QTR);
 	
 		$SHOPNAME = str_replace(' ', '', $SHOPNAME);
-		$CITY = str_replace(' ', '', $CITY);
+		
 		$STATE = str_replace(' ', '', $STATE);
 		$FAMILY = str_replace(' ', '', $FAMILY);
 		$CATEGORY = str_replace(' ', '', $CATEGORY);
@@ -145,7 +145,7 @@ if($method == 'POST')
 		{
 			$ARTICLE = 'ALL';
 		}
-		$json_url = "http://74.201.240.43:8000/ChatBot/Sample_chatbot/EFASHION_DEV.xsjs?command=$com&STATE=$STATE&CITY=$CITY&SHOPNAME=$SHOPNAME&YR=$YR&QTR=$QTR&MTH=$MTH&FAMILY=$FAMILY&CATEGORY=$CATEGORY&ARTICLE=$ARTICLE";		
+		$json_url = "http://74.201.240.43:8000/ChatBot/Sample_chatbot/EFASHION_DEV.xsjs?command=$com&STATE=$STATE&CITY=$CITY&SHOPNAME=$SHOPNAME&YR=$YR&QTR=$QTR&MTH=$MTH&FAMILY=$FAMILY&CATEGORY=$CATEGORY&ARTICLE=$ARTICLE&ACTION=$action";		
 		
 		$username    = "SANYAM_K";
     		$password    = "Welcome@123";
@@ -161,6 +161,7 @@ if($method == 'POST')
 		$someobj = json_decode($json,true);
 		if($com == 'amountsold' or $com == 'margin' or $com == 'qtysold')
 		{
+			$CITY = str_replace(' ', '', $CITY);
 			if ($com == 'amountsold')
 				$distext = "Total sale value is of worth $";
 			else if($com == 'margin')
@@ -180,7 +181,7 @@ if($method == 'POST')
 			{
 				$speech .= $distext. $value["AMOUNT"].$disshop.$value["SHOP_NAME"].$discity.$value["CITY"].$disstate.$value["STATE"]." ".$value["FAMILY_NAME"].$disfamily." ".$value["CATEGORY"].$discategory." ".$value["ARTICLE_LABEL"].$disarticle.$disqtr.$value["QTR"].$dismth.$value["MTH"].$disyear.$value["YR"];
 				$speech .= "\r\n";
-				$speech .= "Do you want this info on mail\n";
+				//$speech .= "Do you want this info on mail\n";
 			 }
 			//if($speech != "") { $speech .= "I can drill down further\n";}
 		}
@@ -273,27 +274,30 @@ if($method == 'POST')
 	
 	else if ($com=='weather')
 	{
+			
 		if(strlen($CITY) > 1) 
 		{	 
 
-			$opts = array();
+			/*$opts = array();
 			$opts['http'] = array();
 			$opts['http']['method']="GET";
 			$opts['http']['header']="Accept-language: en\r\n"."Cookie: foo=bar\r\n";
 
 			$t1=stream_context_create($opts);
-
+		
 			// Open the file using the HTTP headers set above
 			$test_file=file_get_contents("https://api.openweathermap.org/data/2.5/weather?q=$CITY&appid=4b75f2eaa9f9a62fe7309f06b84b69f9", false, $t1);
-
+			
 			$file = json_decode($test_file);
 			$weather_data = $file->weather[0]->description;
 			$temp =  1.8*($file->main->temp - 273) +32 ;
 			$speech = "Now the Weather in $CITY is $weather_data , The temperature is $temp F " ;
+			$speech .= "\r\n";*/
+			//$link = "https://api.openweathermap.org/data/2.5/weather?q=".$CITY."&appid=4b75f2eaa9f9a62fe7309f06b84b69f9"; // Link goes here!
+			$speech = "Now the Weather in $CITY can be seen at below link";
 			$speech .= "\r\n";
-			/*$link = 'https://api.openweathermap.org/data/2.5/weather?q='.$CITY.'&appid=4b75f2eaa9f9a62fe7309f06b84b69f9'; // Link goes here!
-			//echo $link;
-			$speech = '<a href="'.$link.'">Link</a>';*/
+			$link = "https://www.timeanddate.com/weather/usa/".$CITY;
+			$speech .= $link;
 			
 				
 			

@@ -93,6 +93,9 @@ if($method == 'POST')
 		$YR= strtoupper($YR);
 		$MTH= strtoupper($MTH);
 		$QTR= strtoupper($QTR);
+		$ENT_MEASURE= strtoupper($ENT_MEASURE);
+		$ENT_TOP_BOT= strtoupper($ENT_TOP_BOT);
+	
 	
 		$SHOPNAME = str_replace(' ', '', $SHOPNAME);
 		
@@ -105,7 +108,17 @@ if($method == 'POST')
 		$QTR = str_replace(' ', '', $QTR);
 		
 		
-		
+		/*$sale_array = array("SALES","SALE");
+		if (in_array($ENT_MEASURE, $sale_array)) {$showsale=1;}
+		$margin_array = array("MARGIN","PROFIT");
+		if (in_array($ENT_MEASURE, $margin_array)) {$showmearuse=1;}
+		$qty_array = array("QUANTITY","QTY","ITEMS","PRODUCTS");
+		if (in_array($ENT_MEASURE, $qty_array)) {$showqty=1;}
+		$top_array = ("TOP","HIGHEST","MAXIMUM");
+		if (in_array($ENT_TOP_BOT, $top_array)) {$showtop=1;}
+		$bottom_array = ("BOTTOM","LOWEST","MINIMUM");
+		if (in_array($ENT_TOP_BOT, $bottom_array)) {$showbot=1;}*/
+	
 		$userespnose = array("PLEASEIGNORE", "IGNORE","IGNOREIT", "ANYVALUE","ANY","NOIDEA");
 		
 		if (in_array($YR, $userespnose)) {$YR='0';}
@@ -223,17 +236,18 @@ if($method == 'POST')
 		if($com == 'amountsold' or $com == 'margin' or $com == 'qtysold' or $action == 'HighLowValues')
 		{
 			$CITY = str_replace(' ', '', $CITY);
-			if ($com == 'amountsold' or $action == 'HighLowValues')
+			if ($com == 'amountsold' )
 				$distext = "Total sale value is of worth $";
-			else if($com == 'margin' or $action == 'HighLowValues')
+			else if($com == 'margin' )
 				$distext = "Total profit value is of worth $";
-			else if ($com == 'qtysold' or $action == 'HighLowValues')
+			else if ($com == 'qtysold' )
 				$distext = "Total ";
-			/*else if ($action == 'HighLowValues')
+			else if ($action == 'HighLowValues')
 			{
-				$distext = "Values are ";
+				$distext = "$ENT_TOP_BOT $NUM $ENT_MEASURE VALUES ARE ";
 				$distext .= "\r\n";
-			}*/
+				
+			}
 			if($CITY !='0' 	|| $ENT_CITY != '0')	{ $discity = " for city "; } else { $discity = ""; }
 			if($STATE !='0' || $ENT_STATE != '0'){ $disstate = " in state "; } else { $disstate = ""; }
 			if($FAMILY !='0' || $ENT_FAM != '0'){ $disfamily = " family of product sold "; } else {$disfamily = ""; }

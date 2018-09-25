@@ -29,49 +29,49 @@ if($method == 'POST')
 		
 	
 		if(isset($json->queryResult->parameters->STATE))
-		{	$STATE= $json->queryResult->parameters->STATE; } else {$STATE = '0';}
+		{	$STATE= $json->queryResult->parameters->STATE; } 
 	
 		if(isset($json->queryResult->parameters->ENT_STATE))
-		{	$ENT_STATE= $json->queryResult->parameters->ENT_STATE;	}else {$ENT_STATE = '0';}
+		{	$ENT_STATE= $json->queryResult->parameters->ENT_STATE;	}
 	
 		if(isset($json->queryResult->parameters->CITY))
-		{	$CITY= $json->queryResult->parameters->CITY; } else {$CITY = '0';}
+		{	$CITY= $json->queryResult->parameters->CITY; } 
 	
 		if(isset($json->queryResult->parameters->ENT_CITY))
-		{	$ENT_CITY= $json->queryResult->parameters->ENT_CITY; } else {$ENT_CITY = '0';} 
+		{	$ENT_CITY= $json->queryResult->parameters->ENT_CITY; } 
 	
 		if(isset($json->queryResult->parameters->SHOPNAME))
-		{	$SHOPNAME= $json->queryResult->parameters->SHOPNAME; } else {$SHOPNAME = '0';}
+		{	$SHOPNAME= $json->queryResult->parameters->SHOPNAME; }
 	
 		if(isset($json->queryResult->parameters->ENT_SHOP))
-		{	$ENT_SHOP= $json->queryResult->parameters->ENT_SHOP; } else {$ENT_SHOP = '0';} 
+		{	$ENT_SHOP= $json->queryResult->parameters->ENT_SHOP; }
 	
 		if(isset($json->queryResult->parameters->YR))
-		{	$YR= $json->queryResult->parameters->YR; } else {$YR = '0';}
+		{	$YR= $json->queryResult->parameters->YR; } 
 		
 		if(isset($json->queryResult->parameters->QTR))
-		{	$QTR= $json->queryResult->parameters->QTR; } else {$QTR = '0';}
+		{	$QTR= $json->queryResult->parameters->QTR; }
 		
 		if(isset($json->queryResult->parameters->MTH))
-		{	$MTH= $json->queryResult->parameters->MTH; } else {$MTH = '0';}	
+		{	$MTH= $json->queryResult->parameters->MTH; } 
 
 	   	if(isset($json->queryResult->parameters->FAMILY))
-		{	$FAMILY= $json->queryResult->parameters->FAMILY; } else {$FAMILY = '0';}
+		{	$FAMILY= $json->queryResult->parameters->FAMILY; } 
 	
 		if(isset($json->queryResult->parameters->ENT_FAM))
-		{	$ENT_FAM= $json->queryResult->parameters->ENT_FAM; } else {$ENT_FAM = '0';}
+		{	$ENT_FAM= $json->queryResult->parameters->ENT_FAM; } 
 	
 	     	if(isset($json->queryResult->parameters->CATEGORY))
-		{	$CATEGORY= $json->queryResult->parameters->CATEGORY; } else {$CATEGORY = '0';}
+		{	$CATEGORY= $json->queryResult->parameters->CATEGORY; } 
 	
 		if(isset($json->queryResult->parameters->ENT_CAT))
-		{	$ENT_CAT= $json->queryResult->parameters->ENT_CAT; } else {$ENT_CAT = '0';}
+		{	$ENT_CAT= $json->queryResult->parameters->ENT_CAT; }
 	
 	     	if(isset($json->queryResult->parameters->ARTICLE))
-		{	$ARTICLE= $json->queryResult->parameters->ARTICLE; } else {$ARTICLE = '0';}
+		{	$ARTICLE= $json->queryResult->parameters->ARTICLE; } 
 	
 		if(isset($json->queryResult->parameters->ENT_ARTICLE))
-		{	$ENT_ARTICLE= $json->queryResult->parameters->ENT_ARTICLE; }else {$ENT_ARTICLE = '0';}
+		{	$ENT_ARTICLE= $json->queryResult->parameters->ENT_ARTICLE; }
 	
 		if(isset($json->queryResult->parameters->NUM))
 		{	$NUM= $json->queryResult->parameters->NUM;

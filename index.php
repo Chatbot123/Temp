@@ -101,7 +101,7 @@ if($method == 'POST')
 	
 	
 		$SHOPNAME = str_replace(' ', '', $SHOPNAME);
-		
+		$CITY = str_replace(' ', '', $CITY);
 		$STATE = str_replace(' ', '', $STATE);
 		$FAMILY = str_replace(' ', '', $FAMILY);
 		$CATEGORY = str_replace(' ', '', $CATEGORY);
@@ -221,6 +221,7 @@ if($method == 'POST')
 		}
 		else
 		{
+		
 		$json_url = "http://74.201.240.43:8000/ChatBot/Sample_chatbot/EFASHION_DEV.xsjs?command=$com&STATE=$STATE&CITY=$CITY&SHOPNAME=$SHOPNAME&YR=$YR&QTR=$QTR&MTH=$MTH&FAMILY=$FAMILY&CATEGORY=$CATEGORY&ARTICLE=$ARTICLE&ACTION=$action";		
 		
 		$username    = "SANYAM_K";
@@ -239,7 +240,7 @@ if($method == 'POST')
 	echo $json_url;
 		if($com == 'amountsold' or $com == 'margin' or $com == 'qtysold' or $action == 'HighLowValues')
 		{
-			$CITY = str_replace(' ', '', $CITY);
+			
 			if ($com == 'amountsold' )
 			{
 				$distext = "Total sale values are ";
@@ -374,7 +375,8 @@ if($method == 'POST')
 	
 	else if ($com=='weather')
 	{
-			
+			if(isset($json->queryResult->parameters->CITY))
+		{	$CITY= $json->queryResult->parameters->CITY; } 
 		if(strlen($CITY) > 1) 
 		{	 
 

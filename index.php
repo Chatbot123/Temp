@@ -11,11 +11,12 @@ if($method == 'POST')
 	$com = strtolower($com);
 	
 	if(isset($json->queryResult->parameters->myaction))
-		{	$com = $json->queryResult->parameters->myaction; } else {$com = '0';}
+		{	$myaction = $json->queryResult->parameters->myaction; } else {$myaction = '0';}
 	
 	if(isset($json->queryResult->action))
 		{	$action = $json->queryResult->action; } else {$action = '0';}
 	
+	if($action == 'MyPreviousIntent' and $myaction == 'HighLowValues' ){$action = 'HighLowValues';}
 	
 	if(($com == 'liststates' || $com == 'shoplist' || $com == 'listcity' || $com == 'listfamily' || $com == 'listcategory' || $com == 'listarticle' || $com == 'listyear') && $my_action == 'amountsold' && $action == '0')
 	{$com = "amountsold";}

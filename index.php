@@ -29,71 +29,53 @@ if($method == 'POST')
 		
 	
 		if(isset($json->queryResult->parameters->STATE))
-		{	$STATE= $json->queryResult->parameters->STATE; 
-			$xsjs_url .= "&STATE=$STATE";
-		} else {$STATE = '0';}
+		{	$STATE= $json->queryResult->parameters->STATE; } else {$STATE = '0';}
+	
 		if(isset($json->queryResult->parameters->ENT_STATE))
-		{	$ENT_STATE= $json->queryResult->parameters->ENT_STATE; 
-			$xsjs_url .= "&ENT_STATE=$ENT_STATE";
-		}else {$ENT_STATE = '0';}
+		{	$ENT_STATE= $json->queryResult->parameters->ENT_STATE;	}else {$ENT_STATE = '0';}
+	
 		if(isset($json->queryResult->parameters->CITY))
-		{	$CITY= $json->queryResult->parameters->CITY; 
-			$xsjs_url .= "&CITY=$CITY";	
-		} else {$CITY = '0';}
+		{	$CITY= $json->queryResult->parameters->CITY; } else {$CITY = '0';}
+	
 		if(isset($json->queryResult->parameters->ENT_CITY))
-		{	$ENT_CITY= $json->queryResult->parameters->ENT_CITY; 
-			$xsjs_url .= "&ENT_CITY=$ENT_CITY";	
-		} else {$ENT_CITY = '0';} 		
+		{	$ENT_CITY= $json->queryResult->parameters->ENT_CITY; } else {$ENT_CITY = '0';} 
+	
 		if(isset($json->queryResult->parameters->SHOPNAME))
-		{	$SHOPNAME= $json->queryResult->parameters->SHOPNAME;
-			$xsjs_url .= "&SHOPNAME=$SHOPNAME";
-		} else {$SHOPNAME = '0';}
+		{	$SHOPNAME= $json->queryResult->parameters->SHOPNAME; } else {$SHOPNAME = '0';}
+	
 		if(isset($json->queryResult->parameters->ENT_SHOP))
-		{	$ENT_SHOP= $json->queryResult->parameters->ENT_SHOP;
-			$xsjs_url .= "&ENT_SHOP=$ENT_SHOP";
-		} else {$ENT_SHOP = '0';} 
+		{	$ENT_SHOP= $json->queryResult->parameters->ENT_SHOP; } else {$ENT_SHOP = '0';} 
+	
 		if(isset($json->queryResult->parameters->YR))
-		{	$YR= $json->queryResult->parameters->YR;
-			$xsjs_url .= "&YR=$YR";
-		} else {$YR = '0';}
+		{	$YR= $json->queryResult->parameters->YR; } else {$YR = '0';}
 		
 		if(isset($json->queryResult->parameters->QTR))
-		{	$QTR= $json->queryResult->parameters->QTR;
-			$xsjs_url .= "&QTR=$QTR";
-		} else {$QTR = '0';}
+		{	$QTR= $json->queryResult->parameters->QTR; } else {$QTR = '0';}
 		
 		if(isset($json->queryResult->parameters->MTH))
-		{	$MTH= $json->queryResult->parameters->MTH;
-			$xsjs_url .= "&MTH=$MTH";
-		} else {$MTH = '0';}	
+		{	$MTH= $json->queryResult->parameters->MTH; } else {$MTH = '0';}	
 
 	   	if(isset($json->queryResult->parameters->FAMILY))
-		{	$FAMILY= $json->queryResult->parameters->FAMILY;
-			$xsjs_url .= "&FAMILY=$FAMILY";
-		} else {$FAMILY = '0';}
+		{	$FAMILY= $json->queryResult->parameters->FAMILY; } else {$FAMILY = '0';}
+	
 		if(isset($json->queryResult->parameters->ENT_FAM))
-		{	$ENT_FAM= $json->queryResult->parameters->ENT_FAM;
-			$xsjs_url .= "&ENT_FAM=$ENT_FAM";
-		} else {$ENT_FAM = '0';}
+		{	$ENT_FAM= $json->queryResult->parameters->ENT_FAM; } else {$ENT_FAM = '0';}
+	
 	     	if(isset($json->queryResult->parameters->CATEGORY))
-		{	$CATEGORY= $json->queryResult->parameters->CATEGORY;
-			$xsjs_url .= "&CATEGORY=$CATEGORY";
-		} else {$CATEGORY = '0';}
+		{	$CATEGORY= $json->queryResult->parameters->CATEGORY; } else {$CATEGORY = '0';}
+	
 		if(isset($json->queryResult->parameters->ENT_CAT))
-		{	$ENT_CAT= $json->queryResult->parameters->ENT_CAT;
-			$xsjs_url .= "&ENT_CAT=$ENT_CAT";
-		} else {$ENT_CAT = '0';}
+		{	$ENT_CAT= $json->queryResult->parameters->ENT_CAT; } else {$ENT_CAT = '0';}
+	
 	     	if(isset($json->queryResult->parameters->ARTICLE))
-		{	$ARTICLE= $json->queryResult->parameters->ARTICLE;
-			$xsjs_url .= "&ARTICLE=$ARTICLE";
-		} else {$ARTICLE = '0';}
+		{	$ARTICLE= $json->queryResult->parameters->ARTICLE; } else {$ARTICLE = '0';}
+	
 		if(isset($json->queryResult->parameters->ENT_ARTICLE))
-		{	$ENT_ARTICLE= $json->queryResult->parameters->ENT_ARTICLE;
-			$xsjs_url .= "&ENT_ARTICLE=$ENT_ARTICLE";
-		}else {$ENT_ARTICLE = '0';}
+		{	$ENT_ARTICLE= $json->queryResult->parameters->ENT_ARTICLE; }else {$ENT_ARTICLE = '0';}
+	
 		if(isset($json->queryResult->parameters->NUM))
 		{	$NUM= $json->queryResult->parameters->NUM;
-			$xsjs_url .= "&NUM=$NUM";
+			
 		}
 		
 		
@@ -117,22 +99,6 @@ if($method == 'POST')
 		$YR = str_replace(' ', '', $YR);
 		$MTH = str_replace(' ', '', $MTH);
 		$QTR = str_replace(' ', '', $QTR);
-		
-		if($CITY=="" ){	$CITY='0';}
-		if($STATE=="" ){$STATE='0';}
-		if($SHOPNAME=="" ){$SHOPNAME='0';}
-		if($FAMILY=="" ){$FAMILY='0';}
-		if($CATEGORY=="" ){$CATEGORY='0';}
-		if($ARTICLE=="" ){$ARTICLE='0';}
-		if($YR=="" ){$YR='0';}
-		if($MTH=="" ){$MTH='0';}
-		if($QTR=="" ){$QTR='0';}
-		if($ENT_CITY=="" ){	$ENT_CITY='0';}
-		if($ENT_STATE=="" ){$ENT_STATE='0';}
-		if($ENT_SHOPNAME=="" ){$ENT_SHOPNAME='0';}
-		if($ENT_FAM=="" ){$ENT_FAM='0';}
-		if($ENT_CAT=="" ){$ENT_CAT='0';}
-		if($ENT_ARTICLE=="" ){$ENT_ARTICLE='0';}
 		
 		echo $xsjs_url;
 		
@@ -187,6 +153,52 @@ if($method == 'POST')
 		{
 			$ARTICLE = 'ALL';
 		}
+	
+		if($CITY=="" )
+		{	$CITY='0';  
+			$xsjs_url .= "&CITY=$CITY"; 
+		}
+		if($STATE=="" )
+		{
+				$STATE='0'; 
+				$xsjs_url .= "&STATE=$STATE";
+		}
+		if($SHOPNAME=="" )
+		{
+			$SHOPNAME='0'; 
+			$xsjs_url .= "&SHOPNAME=$SHOPNAME";
+		}
+		if($FAMILY=="" )
+		{
+			$FAMILY='0'; 
+			$xsjs_url .= "&FAMILY=$FAMILY";
+		}
+		if($CATEGORY=="" )
+		{
+			$CATEGORY='0'; $xsjs_url .= "&CATEGORY=$CATEGORY";
+		}
+		if($ARTICLE=="" )
+		{
+			$ARTICLE='0'; 
+			$xsjs_url .= "&ARTICLE=$ARTICLE";
+		}
+		
+		if($YR=="" ){$YR='0'; $xsjs_url .= "&YR=$YR";}
+		if($MTH=="" ){$MTH='0'; $xsjs_url .= "&MTH=$MTH";}
+		if($QTR=="" ){$QTR='0'; $xsjs_url .= "&QTR=$QTR";}
+		
+		if($ENT_CITY=="" ){$ENT_CITY='0';} else { $xsjs_url .= "&ENT_CITY=$ENT_CITY";}
+		if($ENT_STATE=="" ){$ENT_STATE='0'; } else {   $xsjs_url .= "&ENT_STATE=$ENT_STATE";}
+		if($ENT_SHOP=="" ){$ENT_SHOP='0';} else {$xsjs_url .= "&ENT_SHOP=$ENT_SHOP";}
+		if($ENT_FAM=="" ){$ENT_FAM='0'; } else {  $xsjs_url .= "&ENT_FAM=$ENT_FAM";}
+		if($ENT_CAT=="" ){$ENT_CAT='0'; } else {  $xsjs_url .= "&ENT_CAT=$ENT_CAT";}
+		if($ENT_ARTICLE=="" ){$ENT_ARTICLE='0'; } else {  $xsjs_url .= "&ENT_ARTICLE=$ENT_ARTICLE";}
+		if($NUM = "") 
+		{
+			$NUM='0'; 
+			$xsjs_url .= "&NUM=$NUM";
+		} 
+	
 		if($action == 'HighLowValues')
 		{
 			$username    = "SANYAM_K";

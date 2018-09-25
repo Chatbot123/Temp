@@ -5,8 +5,8 @@ if($method == 'POST')
 {
 	$requestBody = file_get_contents('php://input');
 	$json = json_decode($requestBody);
-	if(isset($json->queryResult->command))
-		{	$com = $json->queryResult->command; } else {$com = '0';}
+	if(isset($json->queryResult->parameters->command))
+		{	$com = $json->queryResult->parameters->command; } else {$com = '0';}
 	
 	$com = strtolower($com);
 	
@@ -233,7 +233,7 @@ if($method == 'POST')
 		$json = curl_exec( $ch );
 		$someobj = json_decode($json,true);
 		}
-	echo $json_url;
+	//echo $json_url;
 		if($com == 'amountsold' or $com == 'margin' or $com == 'qtysold' or $action == 'HighLowValues')
 		{
 			$CITY = str_replace(' ', '', $CITY);

@@ -158,38 +158,15 @@ if($method == 'POST')
 			$ARTICLE = 'ALL';
 		}
 	
-		if($CITY=="" )
-		{	$CITY='0';  
-			$xsjs_url .= "&CITY=$CITY"; 
-		}
-		if($STATE=="" )
-		{
-				$STATE='0'; 
-				$xsjs_url .= "&STATE=$STATE";
-		}
-		if($SHOPNAME=="" )
-		{
-			$SHOPNAME='0'; 
-			$xsjs_url .= "&SHOPNAME=$SHOPNAME";
-		}
-		if($FAMILY=="" )
-		{
-			$FAMILY='0'; 
-			$xsjs_url .= "&FAMILY=$FAMILY";
-		}
-		if($CATEGORY=="" )
-		{
-			$CATEGORY='0'; $xsjs_url .= "&CATEGORY=$CATEGORY";
-		}
-		if($ARTICLE=="" )
-		{
-			$ARTICLE='0'; 
-			$xsjs_url .= "&ARTICLE=$ARTICLE";
-		}
-		
-		if($YR=="" ){$YR='0'; $xsjs_url .= "&YR=$YR";}
-		if($MTH=="" ){$MTH='0'; $xsjs_url .= "&MTH=$MTH";}
-		if($QTR=="" ){$QTR='0'; $xsjs_url .= "&QTR=$QTR";}
+		if($CITY=="" )		{	$CITY='0';  }
+		if($STATE=="" )		{	$STATE='0'; }
+		if($SHOPNAME=="" )	{	$SHOPNAME='0'; 	}
+		if($FAMILY=="" )	{	$FAMILY='0'; 	}
+		if($CATEGORY=="" )	{	$CATEGORY='0'; 	}
+		if($ARTICLE=="" )	{	$ARTICLE='0'; 	}
+		if($YR=="" )		{	$YR='0'; 	}
+		if($MTH=="" )		{	$MTH='0';	}
+		if($QTR=="" )		{	$QTR='0'; 	}
 		
 		if($ENT_CITY=="" ){$ENT_CITY='0';} else { $xsjs_url .= "&ENT_CITY=$ENT_CITY";}
 		if($ENT_STATE=="" ){$ENT_STATE='0'; } else {   $xsjs_url .= "&ENT_STATE=$ENT_STATE";}
@@ -200,8 +177,17 @@ if($method == 'POST')
 		if($ENT_TOP_BOT=="" ){$ENT_TOP_BOT='0'; } else {  $xsjs_url .= "&ENT_TOP_BOT=$ENT_TOP_BOT";}
 		if($ENT_MEASURE=="" ){$ENT_MEASURE='0'; } else {  $xsjs_url .= "&ENT_MEASURE=$ENT_MEASURE";}
 		if($NUM == "") {	$NUM='0'; } 
+		$xsjs_url .= "&CITY=$CITY";
+		$xsjs_url .= "&STATE=$STATE";
+		$xsjs_url .= "&SHOPNAME=$SHOPNAME";
+		$xsjs_url .= "&FAMILY=$FAMILY";
+		$xsjs_url .= "&CATEGORY=$CATEGORY";
+		$xsjs_url .= "&ARTICLE=$ARTICLE";
+		$xsjs_url .= "&YR=$YR";
+		$xsjs_url .= "&MTH=$MTH";
+		$xsjs_url .= "&QTR=$QTR";
 		$xsjs_url .= "&NUM=$NUM";
-	//echo $xsjs_url;
+	
 		if($action == 'HighLowValues')
 		{
 			$username    = "SANYAM_K";

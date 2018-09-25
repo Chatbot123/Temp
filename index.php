@@ -233,6 +233,7 @@ if($method == 'POST')
 		$json = curl_exec( $ch );
 		$someobj = json_decode($json,true);
 		}
+	echo $json_url;
 		if($com == 'amountsold' or $com == 'margin' or $com == 'qtysold' or $action == 'HighLowValues')
 		{
 			$CITY = str_replace(' ', '', $CITY);

@@ -272,6 +272,7 @@ if($method == 'POST')
 			if($YR != '0')	{      $disyear = " for year ";} else {$disyear = "";}
 			if($QTR != '0')	{      $disqtr = " in quarter ";} else {$disqtr = "";}
 			if($MTH != '0')	{      $dismth = " for month ";} else {$dismth = "";}
+			$speech .= $distext;
 			foreach ($someobj["results"] as $value) 
 			{
 				$speech .= $show_dlr. $value["AMOUNT"].$disshop.$value["SHOP_NAME"].$discity.$value["CITY"].$disstate.$value["STATE"]." ".$value["FAMILY_NAME"].$disfamily." ".$value["CATEGORY"].$discategory." ".$value["ARTICLE_LABEL"].$disarticle.$disqtr.$value["QTR"].$dismth.$value["MTH"].$disyear.$value["YR"];

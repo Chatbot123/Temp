@@ -77,6 +77,7 @@ if($method == 'POST')
 		{	$NUM= $json->queryResult->parameters->NUM;
 			
 		}
+	echo $NUM;
 		if(isset($json->queryResult->parameters->ENT_TOP_BOT))
 		{	$ENT_TOP_BOT= $json->queryResult->parameters->ENT_TOP_BOT; } 
 		

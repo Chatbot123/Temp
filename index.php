@@ -259,7 +259,7 @@ if($method == 'POST')
 				$distext .= "\r\n";
 				$show_dlr = "";
 			}
-			else if ($action == 'HighLowValues')
+			if ($action == 'HighLowValues')
 			{
 				
 				$distext = "$ENT_TOP_BOT $NUM $ENT_MEASURE VALUES ARE ";

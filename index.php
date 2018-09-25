@@ -196,7 +196,17 @@ if($method == 'POST')
 		if($ENT_MEASURE=="" ){$ENT_MEASURE='0'; } else {  $xsjs_url .= "&ENT_MEASURE=$ENT_MEASURE";}
 		if($NUM == "") {	$NUM='0'; } 
 		$top_array =  array("HIGHEST","MAXIMUM","LOWEST","MINIMUM");
-		if (in_array($ENT_TOP_BOT, $top_array)) {$NUM=1; $disnum = "";}else {$disnum=$NUM;}
+		if (in_array($ENT_TOP_BOT, $top_array)) 
+		{
+			$NUM=1;
+			$disnum = "";
+			$disval = "VALUE IS ";
+		}
+		else 
+		{
+			$disnum=$NUM;
+			$disval = "VALUES ARE ";
+		}
 		
 		$xsjs_url .= "&CITY=$CITY";
 		$xsjs_url .= "&STATE=$STATE";
@@ -267,7 +277,7 @@ if($method == 'POST')
 			if ($action == 'HighLowValues')
 			{
 				
-				$distext = "$ENT_TOP_BOT $disnum $ENT_MEASURE VALUES ARE ";
+				$distext = "$ENT_TOP_BOT $disnum $ENT_MEASURE $disval ";
 				if($showqty==1)
 				{$show_dlr = "";} else {$show_dlr = "Worth of $";}
 				 $distext .= "\r\n";

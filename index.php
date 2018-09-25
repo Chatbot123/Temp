@@ -127,8 +127,14 @@ if($method == 'POST')
 		if($YR=="" ){$YR='0';}
 		if($MTH=="" ){$MTH='0';}
 		if($QTR=="" ){$QTR='0';}
+		if($ENT_CITY=="" ){	$ENT_CITY='0';}
+		if($ENT_STATE=="" ){$ENT_STATE='0';}
+		if($ENT_SHOPNAME=="" ){$ENT_SHOPNAME='0';}
+		if($ENT_FAM=="" ){$ENT_FAM='0';}
+		if($ENT_CAT=="" ){$ENT_CAT='0';}
+		if($ENT_ARTICLE=="" ){$ENT_ARTICLE='0';}
 		
-		
+		echo $xsjs_url;
 		
 		$userespnose = array("PLEASEIGNORE", "IGNORE","IGNOREIT", "ANYVALUE","ANY","NOIDEA");
 		
@@ -196,6 +202,8 @@ if($method == 'POST')
 			$json = curl_exec( $ch );
 			$someobj = json_decode($json,true);
 		}
+		else
+		{
 		$json_url = "http://74.201.240.43:8000/ChatBot/Sample_chatbot/EFASHION_DEV.xsjs?command=$com&STATE=$STATE&CITY=$CITY&SHOPNAME=$SHOPNAME&YR=$YR&QTR=$QTR&MTH=$MTH&FAMILY=$FAMILY&CATEGORY=$CATEGORY&ARTICLE=$ARTICLE&ACTION=$action";		
 		
 		$username    = "SANYAM_K";
@@ -210,6 +218,7 @@ if($method == 'POST')
     		curl_setopt_array( $ch, $options );
 		$json = curl_exec( $ch );
 		$someobj = json_decode($json,true);
+		}
 		if($com == 'amountsold' or $com == 'margin' or $com == 'qtysold' or $action == 'HighLowValues')
 		{
 			$CITY = str_replace(' ', '', $CITY);

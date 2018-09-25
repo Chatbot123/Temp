@@ -112,16 +112,17 @@ if($method == 'POST')
 		
 		$qty_array = array("QUANTITY","QTY","ITEMS","PRODUCTS");
 		if (in_array($ENT_MEASURE, $qty_array)) {$showqty=1;}
-		$top_array = ("HIGHEST","MAXIMUM");
+	
+		$top_array =  array("HIGHEST","MAXIMUM");
 		if (in_array($ENT_TOP_BOT, $top_array)) {$NUM=1;}
-		$bottom_array = ("LOWEST","MINIMUM");
+	
+		$bottom_array =  array("LOWEST","MINIMUM");
 		if (in_array($ENT_TOP_BOT, $bottom_array)) {$NUM=1;}
+	
 		/*$sale_array = array("SALES","SALE");
 		if (in_array($ENT_MEASURE, $sale_array)) {$showsale=1;}
 		$margin_array = array("MARGIN","PROFIT");
-		if (in_array($ENT_MEASURE, $margin_array)) {$showmearuse=1;}
-		
-		*/
+		if (in_array($ENT_MEASURE, $margin_array)) {$showmearuse=1;}*/
 	
 		$userespnose = array("PLEASEIGNORE", "IGNORE","IGNOREIT", "ANYVALUE","ANY","NOIDEA");
 		

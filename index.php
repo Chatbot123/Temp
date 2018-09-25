@@ -237,18 +237,30 @@ if($method == 'POST')
 		{
 			$CITY = str_replace(' ', '', $CITY);
 			if ($com == 'amountsold' )
-				$distext = "Total sale value is of worth $";
+			{
+				$distext = "Total sale value is of worth";
+				$distext .= "\r\n";
+				$show_dlr = "$";
+			}
 			else if($com == 'margin' )
+			{
 				$distext = "Total profit value is of worth $";
+				$distext .= "\r\n";
+				$show_dlr = "$";
+			}
 			else if ($com == 'qtysold' )
-				$distext = "Total ";
+			{
+				$distext = "Total products sold";
+				$distext .= "\r\n";
+				$show_dlr = "";
+			}
 			else if ($action == 'HighLowValues')
 			{
 				
 				$distext = "$ENT_TOP_BOT $NUM $ENT_MEASURE VALUES ARE ";
 				if($showqty==1)
 				{$show_dlr = "";} else {$show_dlr = "$";}
-				$distext .= "\r\n";
+				 $distext .= "\r\n";
 				
 			}
 			if($CITY !='0' 	|| $ENT_CITY != '0')	{ $discity = " for city "; } else { $discity = ""; }
@@ -262,7 +274,7 @@ if($method == 'POST')
 			if($MTH != '0')	{      $dismth = " for month ";} else {$dismth = "";}
 			foreach ($someobj["results"] as $value) 
 			{
-				$speech .= $distext. $value["AMOUNT"].$disshop.$value["SHOP_NAME"].$discity.$value["CITY"].$disstate.$value["STATE"]." ".$value["FAMILY_NAME"].$disfamily." ".$value["CATEGORY"].$discategory." ".$value["ARTICLE_LABEL"].$disarticle.$disqtr.$value["QTR"].$dismth.$value["MTH"].$disyear.$value["YR"];
+				$speech .= $show_dlr. $value["AMOUNT"].$disshop.$value["SHOP_NAME"].$discity.$value["CITY"].$disstate.$value["STATE"]." ".$value["FAMILY_NAME"].$disfamily." ".$value["CATEGORY"].$discategory." ".$value["ARTICLE_LABEL"].$disarticle.$disqtr.$value["QTR"].$dismth.$value["MTH"].$disyear.$value["YR"];
 				$speech .= "\r\n";
 				//$speech .= "Do you want this info on mail\n";
 			 }

@@ -10,6 +10,8 @@ if($method == 'POST')
 	
 	$com = strtolower($com);
 	
+	if(isset($json->queryResult->parameters->myaction))
+		{	$com = $json->queryResult->parameters->myaction; } else {$com = '0';}
 	
 	if(isset($json->queryResult->action))
 		{	$action = $json->queryResult->action; } else {$action = '0';}

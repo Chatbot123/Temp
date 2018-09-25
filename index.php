@@ -113,16 +113,16 @@ if($method == 'POST')
 		$qty_array = array("QUANTITY","QTY","ITEMS","PRODUCTS");
 		if (in_array($ENT_MEASURE, $qty_array)) {$showqty=1;}
 	
-		$top_array =  array("HIGHEST","MAXIMUM");
-		if (in_array($ENT_TOP_BOT, $top_array)) {$NUM=1;}
+		
 	
-		$bottom_array =  array("LOWEST","MINIMUM");
-		if (in_array($ENT_TOP_BOT, $bottom_array)) {$NUM=1;}
+		
 	
 		/*$sale_array = array("SALES","SALE");
 		if (in_array($ENT_MEASURE, $sale_array)) {$showsale=1;}
 		$margin_array = array("MARGIN","PROFIT");
-		if (in_array($ENT_MEASURE, $margin_array)) {$showmearuse=1;}*/
+		if (in_array($ENT_MEASURE, $margin_array)) {$showmearuse=1;}
+		$bottom_array =  array("LOWEST","MINIMUM");
+		if (in_array($ENT_TOP_BOT, $bottom_array)) {$NUM=1;}*/
 	
 		$userespnose = array("PLEASEIGNORE", "IGNORE","IGNOREIT", "ANYVALUE","ANY","NOIDEA");
 		
@@ -195,6 +195,9 @@ if($method == 'POST')
 		if($ENT_TOP_BOT=="" ){$ENT_TOP_BOT='0'; } else {  $xsjs_url .= "&ENT_TOP_BOT=$ENT_TOP_BOT";}
 		if($ENT_MEASURE=="" ){$ENT_MEASURE='0'; } else {  $xsjs_url .= "&ENT_MEASURE=$ENT_MEASURE";}
 		if($NUM == "") {	$NUM='0'; } 
+		$top_array =  array("HIGHEST","MAXIMUM","LOWEST","MINIMUM");
+		if (in_array($ENT_TOP_BOT, $top_array)) {$NUM=1; $disnum = "";}else {$disnum=$NUM;}
+		
 		$xsjs_url .= "&CITY=$CITY";
 		$xsjs_url .= "&STATE=$STATE";
 		$xsjs_url .= "&SHOPNAME=$SHOPNAME";
@@ -264,7 +267,7 @@ if($method == 'POST')
 			if ($action == 'HighLowValues')
 			{
 				
-				$distext = "$ENT_TOP_BOT $NUM $ENT_MEASURE VALUES ARE ";
+				$distext = "$ENT_TOP_BOT $disnum $ENT_MEASURE VALUES ARE ";
 				if($showqty==1)
 				{$show_dlr = "";} else {$show_dlr = "Worth of $";}
 				 $distext .= "\r\n";

@@ -181,7 +181,21 @@ if($method == 'POST')
 		{
 			$ARTICLE = 'ALL';
 		}
-	
+		if($action == 'HighLowValues')
+		{
+			$username    = "SANYAM_K";
+			$password    = "Welcome@123";
+			$ch      = curl_init( $xsjs_url );
+			$options = array(
+			CURLOPT_SSL_VERIFYPEER => false,
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_USERPWD        => "{$username}:{$password}",
+			CURLOPT_HTTPHEADER     => array( "Accept: application/json" ),
+			);
+			curl_setopt_array( $ch, $options );
+			$json = curl_exec( $ch );
+			$someobj = json_decode($json,true);
+		}
 		$json_url = "http://74.201.240.43:8000/ChatBot/Sample_chatbot/EFASHION_DEV.xsjs?command=$com&STATE=$STATE&CITY=$CITY&SHOPNAME=$SHOPNAME&YR=$YR&QTR=$QTR&MTH=$MTH&FAMILY=$FAMILY&CATEGORY=$CATEGORY&ARTICLE=$ARTICLE&ACTION=$action";		
 		
 		$username    = "SANYAM_K";

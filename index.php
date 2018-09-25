@@ -107,13 +107,13 @@ if($method == 'POST')
 		$MTH = str_replace(' ', '', $MTH);
 		$QTR = str_replace(' ', '', $QTR);
 		
-		
+		$qty_array = array("QUANTITY","QTY","ITEMS","PRODUCTS");
+		if (in_array($ENT_MEASURE, $qty_array)) {$showqty=1;}
 		/*$sale_array = array("SALES","SALE");
 		if (in_array($ENT_MEASURE, $sale_array)) {$showsale=1;}
 		$margin_array = array("MARGIN","PROFIT");
 		if (in_array($ENT_MEASURE, $margin_array)) {$showmearuse=1;}
-		$qty_array = array("QUANTITY","QTY","ITEMS","PRODUCTS");
-		if (in_array($ENT_MEASURE, $qty_array)) {$showqty=1;}
+		
 		$top_array = ("TOP","HIGHEST","MAXIMUM");
 		if (in_array($ENT_TOP_BOT, $top_array)) {$showtop=1;}
 		$bottom_array = ("BOTTOM","LOWEST","MINIMUM");
@@ -244,7 +244,10 @@ if($method == 'POST')
 				$distext = "Total ";
 			else if ($action == 'HighLowValues')
 			{
+				
 				$distext = "$ENT_TOP_BOT $NUM $ENT_MEASURE VALUES ARE ";
+				if($showqty==1)
+				{$show_dlr = "";} else {$show_dlr = "$";}
 				$distext .= "\r\n";
 				
 			}

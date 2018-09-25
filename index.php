@@ -241,13 +241,13 @@ if($method == 'POST')
 			{
 				$distext = "Total sale value is of worth";
 				$distext .= "\r\n";
-				$show_dlr = "$";
+				$show_dlr = "Worth of $";
 			}
 			else if($com == 'margin' )
 			{
 				$distext = "Total profit value is of worth $";
 				$distext .= "\r\n";
-				$show_dlr = "$";
+				$show_dlr = "Worth of $";
 			}
 			else if ($com == 'qtysold' )
 			{
@@ -260,7 +260,7 @@ if($method == 'POST')
 				
 				$distext = "$ENT_TOP_BOT $NUM $ENT_MEASURE VALUES ARE ";
 				if($showqty==1)
-				{$show_dlr = "";} else {$show_dlr = "$";}
+				{$show_dlr = "";} else {$show_dlr = "Worth of $";}
 				 $distext .= "\r\n";
 				
 			}

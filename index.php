@@ -77,8 +77,11 @@ if($method == 'POST')
 		{	$NUM= $json->queryResult->parameters->NUM;
 			
 		}
+		if(isset($json->queryResult->parameters->ENT_TOP_BOT))
+		{	$ENT_TOP_BOT= $json->queryResult->parameters->ENT_TOP_BOT; } 
 		
-		
+		if(isset($json->queryResult->parameters->ENT_MEASURE))
+		{	$ENT_MEASURE= $json->queryResult->parameters->ENT_MEASURE; }
 	
 		$CITY= strtoupper($CITY);
 		$STATE= strtoupper($STATE);
@@ -100,7 +103,7 @@ if($method == 'POST')
 		$MTH = str_replace(' ', '', $MTH);
 		$QTR = str_replace(' ', '', $QTR);
 		
-		echo $xsjs_url;
+		
 		
 		$userespnose = array("PLEASEIGNORE", "IGNORE","IGNOREIT", "ANYVALUE","ANY","NOIDEA");
 		
@@ -193,12 +196,14 @@ if($method == 'POST')
 		if($ENT_FAM=="" ){$ENT_FAM='0'; } else {  $xsjs_url .= "&ENT_FAM=$ENT_FAM";}
 		if($ENT_CAT=="" ){$ENT_CAT='0'; } else {  $xsjs_url .= "&ENT_CAT=$ENT_CAT";}
 		if($ENT_ARTICLE=="" ){$ENT_ARTICLE='0'; } else {  $xsjs_url .= "&ENT_ARTICLE=$ENT_ARTICLE";}
+		if($ENT_TOP_BOT=="" ){$ENT_TOP_BOT='0'; } else {  $xsjs_url .= "&ENT_TOP_BOT=$ENT_TOP_BOT";}
+		if($ENT_MEASURE=="" ){$ENT_MEASURE='0'; } else {  $xsjs_url .= "&ENT_MEASURE=$ENT_MEASURE";}
 		if($NUM = "") 
 		{
 			$NUM='0'; 
 			$xsjs_url .= "&NUM=$NUM";
 		} 
-	
+	echo $xsjs_url;
 		if($action == 'HighLowValues')
 		{
 			$username    = "SANYAM_K";

@@ -239,19 +239,19 @@ if($method == 'POST')
 			$CITY = str_replace(' ', '', $CITY);
 			if ($com == 'amountsold' )
 			{
-				$distext = "Total sale value is of worth";
+				$distext = "Total sale values are ";
 				$distext .= "\r\n";
 				$show_dlr = "Worth of $";
 			}
 			else if($com == 'margin' )
 			{
-				$distext = "Total profit value is of worth $";
+				$distext = "Total profit values are";
 				$distext .= "\r\n";
 				$show_dlr = "Worth of $";
 			}
 			else if ($com == 'qtysold' )
 			{
-				$distext = "Total products sold";
+				$distext = "Total products sold are";
 				$distext .= "\r\n";
 				$show_dlr = "";
 			}

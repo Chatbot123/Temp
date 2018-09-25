@@ -237,11 +237,11 @@ if($method == 'POST')
 		if($com == 'amountsold' or $com == 'margin' or $com == 'qtysold' or $action == 'HighLowValues')
 		{
 			$CITY = str_replace(' ', '', $CITY);
-			if ($com == 'amountsold')
+			if ($com == 'amountsold' or $action == 'HighLowValues')
 				$distext = "Total sale value is of worth $";
-			else if($com == 'margin')
+			else if($com == 'margin' or $action == 'HighLowValues')
 				$distext = "Total profit value is of worth $";
-			else if ($com == 'qtysold')
+			else if ($com == 'qtysold' or $action == 'HighLowValues')
 				$distext = "Total ";
 			/*else if ($action == 'HighLowValues')
 			{

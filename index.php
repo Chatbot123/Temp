@@ -201,7 +201,7 @@ if($method == 'POST')
 		if($ENT_MEASURE=="" ){$ENT_MEASURE='0'; } else {  $xsjs_url .= "&ENT_MEASURE=$ENT_MEASURE";}
 		if($NUM == "") {	$NUM='0'; } 
 		$xsjs_url .= "&NUM=$NUM";
-	echo $xsjs_url;
+	//echo $xsjs_url;
 		if($action == 'HighLowValues')
 		{
 			$username    = "SANYAM_K";

@@ -198,11 +198,8 @@ if($method == 'POST')
 		if($ENT_ARTICLE=="" ){$ENT_ARTICLE='0'; } else {  $xsjs_url .= "&ENT_ARTICLE=$ENT_ARTICLE";}
 		if($ENT_TOP_BOT=="" ){$ENT_TOP_BOT='0'; } else {  $xsjs_url .= "&ENT_TOP_BOT=$ENT_TOP_BOT";}
 		if($ENT_MEASURE=="" ){$ENT_MEASURE='0'; } else {  $xsjs_url .= "&ENT_MEASURE=$ENT_MEASURE";}
-		if($NUM = "") 
-		{
-			$NUM='0'; 
-			$xsjs_url .= "&NUM=$NUM";
-		} 
+		if($NUM = "") {	$NUM='0'; } 
+		$xsjs_url .= "&$NUM=$NUM";
 	echo $xsjs_url;
 		if($action == 'HighLowValues')
 		{

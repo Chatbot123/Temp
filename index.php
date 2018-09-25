@@ -5,10 +5,11 @@ if($method == 'POST')
 {
 	$requestBody = file_get_contents('php://input');
 	$json = json_decode($requestBody);
-	$com = $json->queryResult->parameters->command;
+	if(isset($json->queryResult->command))
+		{	$com = $json->queryResult->command; } else {$com = '0';}
+	
 	$com = strtolower($com);
-	if(isset($json->queryResult->parameters->myaction))
-		{	$my_action = $json->queryResult->parameters->myaction; } else {$my_action = "";}
+	
 	
 	if(isset($json->queryResult->action))
 		{	$action = $json->queryResult->action; } else {$action = '0';}
@@ -23,44 +24,79 @@ if($method == 'POST')
 	if(($com == 'liststates' || $com == 'shoplist' || $com == 'listcity' || $com == 'listfamily' || $com == 'listcategory' || $com == 'listarticle' || $com == 'listyear') && $my_action == 'margin' && $action == '0')
 	{$com = "margin";}
 	
+	//to execute xsjs for high and low measures
+	$xsjs_url = "http://74.201.240.43:8000/ChatBot/Sample_chatbot/EFASHION_TEST.xsjs?";
 		
 	
 		if(isset($json->queryResult->parameters->STATE))
-		{	$STATE= $json->queryResult->parameters->STATE; } else {$STATE = '0';}
-		
+		{	$STATE= $json->queryResult->parameters->STATE; 
+			$xsjs_url .= "&STATE=$STATE";
+		} else {$STATE = '0';}
+		if(isset($json->queryResult->parameters->ENT_STATE))
+		{	$ENT_STATE= $json->queryResult->parameters->ENT_STATE; 
+			$xsjs_url .= "&ENT_STATE=$ENT_STATE";
+		}else {$ENT_STATE = '0';}
 		if(isset($json->queryResult->parameters->CITY))
-		{	$CITY= $json->queryResult->parameters->CITY; } else {$CITY = '0';}
-				
+		{	$CITY= $json->queryResult->parameters->CITY; 
+			$xsjs_url .= "&CITY=$CITY";	
+		} else {$CITY = '0';}
+		if(isset($json->queryResult->parameters->ENT_CITY))
+		{	$ENT_CITY= $json->queryResult->parameters->ENT_CITY; 
+			$xsjs_url .= "&ENT_CITY=$ENT_CITY";	
+		} else {$ENT_CITY = '0';} 		
 		if(isset($json->queryResult->parameters->SHOPNAME))
-		{	$SHOPNAME= $json->queryResult->parameters->SHOPNAME; } else {$SHOPNAME = '0';}
-	
+		{	$SHOPNAME= $json->queryResult->parameters->SHOPNAME;
+			$xsjs_url .= "&SHOPNAME=$SHOPNAME";
+		} else {$SHOPNAME = '0';}
+		if(isset($json->queryResult->parameters->ENT_SHOP))
+		{	$ENT_SHOP= $json->queryResult->parameters->ENT_SHOP;
+			$xsjs_url .= "&ENT_SHOP=$ENT_SHOP";
+		} else {$ENT_SHOP = '0';} 
 		if(isset($json->queryResult->parameters->YR))
-		{	$YR= $json->queryResult->parameters->YR; } else {$YR = '0';}
+		{	$YR= $json->queryResult->parameters->YR;
+			$xsjs_url .= "&YR=$YR";
+		} else {$YR = '0';}
 		
 		if(isset($json->queryResult->parameters->QTR))
-		{	$QTR= $json->queryResult->parameters->QTR; } else {$QTR = '0';}
+		{	$QTR= $json->queryResult->parameters->QTR;
+			$xsjs_url .= "&QTR=$QTR";
+		} else {$QTR = '0';}
 		
 		if(isset($json->queryResult->parameters->MTH))
-		{	$MTH= $json->queryResult->parameters->MTH; } else {$MTH = '0';}	
+		{	$MTH= $json->queryResult->parameters->MTH;
+			$xsjs_url .= "&MTH=$MTH";
+		} else {$MTH = '0';}	
 
 	   	if(isset($json->queryResult->parameters->FAMILY))
-		{	$FAMILY= $json->queryResult->parameters->FAMILY; } else {$FAMILY = '0';}
-	
+		{	$FAMILY= $json->queryResult->parameters->FAMILY;
+			$xsjs_url .= "&FAMILY=$FAMILY";
+		} else {$FAMILY = '0';}
+		if(isset($json->queryResult->parameters->ENT_FAM))
+		{	$ENT_FAM= $json->queryResult->parameters->ENT_FAM;
+			$xsjs_url .= "&ENT_FAM=$ENT_FAM";
+		} else {$ENT_FAM = '0';}
 	     	if(isset($json->queryResult->parameters->CATEGORY))
-		{	$CATEGORY= $json->queryResult->parameters->CATEGORY; } else {$CATEGORY = '0';}
-	
+		{	$CATEGORY= $json->queryResult->parameters->CATEGORY;
+			$xsjs_url .= "&CATEGORY=$CATEGORY";
+		} else {$CATEGORY = '0';}
+		if(isset($json->queryResult->parameters->ENT_CAT))
+		{	$ENT_CAT= $json->queryResult->parameters->ENT_CAT;
+			$xsjs_url .= "&ENT_CAT=$ENT_CAT";
+		} else {$ENT_CAT = '0';}
 	     	if(isset($json->queryResult->parameters->ARTICLE))
-		{	$ARTICLE= $json->queryResult->parameters->ARTICLE; } else {$ARTICLE = '0';}
-	
+		{	$ARTICLE= $json->queryResult->parameters->ARTICLE;
+			$xsjs_url .= "&ARTICLE=$ARTICLE";
+		} else {$ARTICLE = '0';}
+		if(isset($json->queryResult->parameters->ENT_ARTICLE))
+		{	$ENT_ARTICLE= $json->queryResult->parameters->ENT_ARTICLE;
+			$xsjs_url .= "&ENT_ARTICLE=$ENT_ARTICLE";
+		}else {$ENT_ARTICLE = '0';}
+		if(isset($json->queryResult->parameters->NUM))
+		{	$NUM= $json->queryResult->parameters->NUM;
+			$xsjs_url .= "&NUM=$NUM";
+		}
 		
-			/*$my_previous_com = $com;
 		
-		if(isset($json->queryResult->parameters->myaction))
-		{	$my_action = $json->queryResult->parameters->myaction; } else {$my_action = "";}
-		
-		/*if($my_action == 'PreviousContextTotSale'){$com = $my_previous_com;}
-		if($my_action == 'PreviousContextQtySold'){$com = $my_previous_com;}
-		if($my_action == 'PreviousContextMargin'){$com = $my_previous_com;}*/
 	
 		$CITY= strtoupper($CITY);
 		$STATE= strtoupper($STATE);
@@ -145,6 +181,7 @@ if($method == 'POST')
 		{
 			$ARTICLE = 'ALL';
 		}
+	
 		$json_url = "http://74.201.240.43:8000/ChatBot/Sample_chatbot/EFASHION_DEV.xsjs?command=$com&STATE=$STATE&CITY=$CITY&SHOPNAME=$SHOPNAME&YR=$YR&QTR=$QTR&MTH=$MTH&FAMILY=$FAMILY&CATEGORY=$CATEGORY&ARTICLE=$ARTICLE&ACTION=$action";		
 		
 		$username    = "SANYAM_K";
@@ -159,7 +196,7 @@ if($method == 'POST')
     		curl_setopt_array( $ch, $options );
 		$json = curl_exec( $ch );
 		$someobj = json_decode($json,true);
-		if($com == 'amountsold' or $com == 'margin' or $com == 'qtysold')
+		if($com == 'amountsold' or $com == 'margin' or $com == 'qtysold' or $action == 'HighLowValues')
 		{
 			$CITY = str_replace(' ', '', $CITY);
 			if ($com == 'amountsold')
@@ -168,12 +205,17 @@ if($method == 'POST')
 				$distext = "Total profit value is of worth $";
 			else if ($com == 'qtysold')
 				$distext = "Total ";
-			if($CITY !='0')	{ $discity = " for city "; } else { $discity = ""; }
-			if($STATE !='0'){ $disstate = " in state "; } else { $disstate = ""; }
-			if($FAMILY !='0'){ $disfamily = " family of product sold "; } else {$disfamily = ""; }
-            		if($CATEGORY !='0'){ $discategory = " category sold "; }	else { $discategory = ""; }
-            		if($ARTICLE !='0'){$disarticle = " article sold ";} else	{ $disarticle = ""; }
-			if($SHOPNAME != '0') { $disshop = " of shop "; } else{	$disshop = "";	}
+			/*else if ($action == 'HighLowValues')
+			{
+				$distext = "Values are ";
+				$distext .= "\r\n";
+			}*/
+			if($CITY !='0' 	|| $ENT_CITY != '0')	{ $discity = " for city "; } else { $discity = ""; }
+			if($STATE !='0' || $ENT_STATE != '0'){ $disstate = " in state "; } else { $disstate = ""; }
+			if($FAMILY !='0' || $ENT_FAM != '0'){ $disfamily = " family of product sold "; } else {$disfamily = ""; }
+            		if($CATEGORY !='0' || $ENT_CAT != '0'){ $discategory = " category sold "; }	else { $discategory = ""; }
+            		if($ARTICLE !='0' || $ENT_ARTICLE != '0'){$disarticle = " article sold ";} else	{ $disarticle = ""; }
+			if($SHOPNAME != '0' || $ENT_SHOP != '0') { $disshop = " of shop "; } else{	$disshop = "";	}
 			if($YR != '0')	{      $disyear = " for year ";} else {$disyear = "";}
 			if($QTR != '0')	{      $disqtr = " in quarter ";} else {$disqtr = "";}
 			if($MTH != '0')	{      $dismth = " for month ";} else {$dismth = "";}

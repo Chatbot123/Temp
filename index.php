@@ -131,12 +131,12 @@ if($method == 'POST')
 		if (in_array($MTH, $userespnose)) {$MTH='0';}
 	
 		$useres = array("PLEASEIGNORE", "IGNORE","IGNOREIT", "DRILLUP");
-		if (in_array($STATE, $useres)) {$STATE='0';}
-		if (in_array($CITY, $useres)) {$CITY='0';}
-		if (in_array($SHOPNAME, $useres)) {$SHOPNAME='0';}
-		if (in_array($FAMILY, $useres)) {$FAMILY='0';}
-		if (in_array($CATEGORY, $useres)) {$CATEGORY='0';}
-		if (in_array($ARTICLE, $useres)) {$ARTICLE='0';}    
+		if (in_array($STATE, $useres)) {$STATE='0'; $ENT_STATE ="";}
+		if (in_array($CITY, $useres)) {$CITY='0'; $ENT_CITY ="";}
+		if (in_array($SHOPNAME, $useres)) {$SHOPNAME='0'; $ENT_SHOP ="";}
+		if (in_array($FAMILY, $useres)) {$FAMILY='0'; $ENT_FAM ="";}
+		if (in_array($CATEGORY, $useres)) {$CATEGORY='0'; $ENT_CAT ="";}
+		if (in_array($ARTICLE, $useres)) {$ARTICLE='0'; $ENT_ARTICLE ="";}    
 		    
 		$userespnose = array("EACH", "EVERY","ALL");
 		if(in_array($STATE, $userespnose))

@@ -207,8 +207,9 @@ if($method == 'POST')
 			$disnum=$NUM;
 			$disval = "VALUES ARE ";
 		}
-		
 		$xsjs_url .= "&CITY=$CITY";
+		$xsjs_url .= "&ENT_MEASURE=$ENT_MEASURE";
+		$xsjs_url .= "&ENT_TOP_BOT=$ENT_TOP_BOT";
 		$xsjs_url .= "&STATE=$STATE";
 		$xsjs_url .= "&SHOPNAME=$SHOPNAME";
 		$xsjs_url .= "&FAMILY=$FAMILY";

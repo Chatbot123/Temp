@@ -186,14 +186,14 @@ if($method == 'POST')
 		if($MTH=="" )		{	$MTH='0';	}
 		if($QTR=="" )		{	$QTR='0'; 	}
 		
-		if($ENT_CITY=="" )	{	$ENT_CITY='0';	} 
-		if($ENT_STATE=="" )	{	$ENT_STATE='0'; } 
-		if($ENT_SHOP=="" )	{	$ENT_SHOP='0';	} 
-		if($ENT_FAM=="" )	{	$ENT_FAM='0';	} 
-		if($ENT_CAT=="" )	{	$ENT_CAT='0';	} 
-		if($ENT_ARTICLE=="" )	{	$ENT_ARTICLE='0'; } 
-		if($ENT_TOP_BOT=="" )	{	$ENT_TOP_BOT='0'; }
-		if($ENT_MEASURE=="" )	{	$ENT_MEASURE='0'; } 
+		if($ENT_CITY=="" )	{	$ENT_CITY='0';	} else { $xsjs_url .= "&ENT_CITY=$ENT_CITY"; }
+		if($ENT_STATE=="" )	{	$ENT_STATE='0'; } else { $xsjs_url .= "&ENT_STATE=$ENT_STATE"; }
+		if($ENT_SHOP=="" )	{	$ENT_SHOP='0';	} else { $xsjs_url .= "&ENT_SHOP=$ENT_SHOP"; }
+		if($ENT_FAM=="" )	{	$ENT_FAM='0';	} else { $xsjs_url .= "&ENT_FAM=$ENT_FAM"; }
+		if($ENT_CAT=="" )	{	$ENT_CAT='0';	} else { $xsjs_url .= "&ENT_CAT=$ENT_CAT"; }
+		if($ENT_ARTICLE=="" )	{	$ENT_ARTICLE='0'; } else { $xsjs_url .= "&ENT_ARTICLE=$ENT_ARTICLE"; }
+		if($ENT_TOP_BOT=="" )	{	$ENT_TOP_BOT='0'; } else { $xsjs_url .= "&ENT_TOP_BOT=$ENT_TOP_BOT"; }
+		if($ENT_MEASURE=="" )	{	$ENT_MEASURE='0'; } else { $xsjs_url .= "&ENT_MEASURE=$ENT_MEASURE";}
 		if($NUM == "") 		{	$NUM='0'; } 
 		$top_array =  array("HIGHEST","MAXIMUM","LOWEST","MINIMUM");
 		if (in_array($ENT_TOP_BOT, $top_array)) 
@@ -208,8 +208,8 @@ if($method == 'POST')
 			$disval = "VALUES ARE ";
 		}
 		$xsjs_url .= "&CITY=$CITY";
-		$xsjs_url .= "&ENT_MEASURE=$ENT_MEASURE";
-		$xsjs_url .= "&ENT_TOP_BOT=$ENT_TOP_BOT";
+		
+		
 		$xsjs_url .= "&STATE=$STATE";
 		$xsjs_url .= "&SHOPNAME=$SHOPNAME";
 		$xsjs_url .= "&FAMILY=$FAMILY";

@@ -228,7 +228,7 @@ if($method == 'POST')
 		$xsjs_url .= "&QTR=$QTR";
 		$xsjs_url .= "&NUM=$NUM";
 		
-	echo $xsjs_url;
+	//echo $xsjs_url;
 		//if($action == 'HighLowValues')
 		//{
 			$username    = "SANYAM_K";
@@ -263,7 +263,7 @@ if($method == 'POST')
 		$someobj = json_decode($json,true);
 		}*/
 	//echo $json_url;
-		if($com == 'amountsold' or $com == 'margin' or $com == 'qtysold' or $action == 'HighLowValues')
+		if($com == 'amountsold' or $com == 'margin' or $com == 'qtysold' or $action == 'HighLowValues' or $com == 'HighLowValues' )
 		{
 			
 			if ($com == 'amountsold' )
@@ -284,7 +284,7 @@ if($method == 'POST')
 				$distext .= "\r\n";
 				$show_dlr = "";
 			}
-			if ($action == 'HighLowValues')
+			if ($action == 'HighLowValues' or $com == 'HighLowValues')
 			{
 				
 				$distext = "$ENT_TOP_BOT $disnum $ENT_MEASURE $disval ";

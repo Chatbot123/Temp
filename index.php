@@ -153,7 +153,7 @@ if($method == 'POST')
 			$MTH = 'ALL';
 		}
 		
-		/*if(in_array($CITY, $userespnose))
+		if(in_array($CITY, $userespnose))
 		{
 			$CITY = 'ALL';
 		}
@@ -172,14 +172,26 @@ if($method == 'POST')
 		if(in_array($ARTICLE, $userespnose))
 		{
 			$ARTICLE = 'ALL';
-		}*/
+		}
 	
-		if($CITY=="" )		{	$CITY='0';  } else { $xsjs_url .= "&CITY=$CITY"; }
-		if($STATE=="" )		{	$STATE='0'; } else { $xsjs_url .= "&STATE=$STATE"; }
-		if($SHOPNAME=="" )	{	$SHOPNAME='0'; 	} else { $xsjs_url .= "&SHOPNAME=$SHOPNAME"; }
-		if($FAMILY=="" )	{	$FAMILY='0'; 	} else { $xsjs_url .= "&FAMILY=$FAMILY"; }
-		if($CATEGORY=="" )	{	$CATEGORY='0'; 	} else { $xsjs_url .= "&CATEGORY=$CATEGORY"; }
-		if($ARTICLE=="" )	{	$ARTICLE='0'; 	}  else { $xsjs_url .= "&ARTICLE=$ARTICLE"; }
+		if($CITY=="" or $CITY == 'ALL' )
+		{$CITY='0';  } else { $xsjs_url .= "&CITY=$CITY"; }
+	
+		if($STATE=="" or $STATE =='ALL' )
+		{$STATE='0'; } else { $xsjs_url .= "&STATE=$STATE"; }
+	
+		if($SHOPNAME=="" or $SHOPNAME == 'ALL' )
+		{$SHOPNAME='0';	} else { $xsjs_url .= "&SHOPNAME=$SHOPNAME"; }
+	
+		if($FAMILY=="" or $FAMILY == 'ALL' )
+		{$FAMILY='0'; } else { $xsjs_url .= "&FAMILY=$FAMILY"; }
+	
+		if($CATEGORY=="" or $CATEGORY == 'ALL' )
+		{$CATEGORY='0'; } else { $xsjs_url .= "&CATEGORY=$CATEGORY"; }
+	
+		if($ARTICLE=="" or $ARTICLE == 'ALL')	
+		{$ARTICLE='0'; 	}  else { $xsjs_url .= "&ARTICLE=$ARTICLE"; }
+	
 		if($YR=="" )		{	$YR='0'; 	}
 		if($MTH=="" )		{	$MTH='0';	}
 		if($QTR=="" )		{	$QTR='0'; 	}

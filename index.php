@@ -146,6 +146,8 @@ if($method == 'POST')
 		if(in_array($FAMILY, $userespnose)){ $FAMILY = 'ALL'; }
 		if(in_array($CATEGORY, $userespnose)){	$CATEGORY = 'ALL';}
 		if(in_array($ARTICLE, $userespnose)){	$ARTICLE = 'ALL'; }
+		if(in_array($STATE, $userespnose)){	$STATE = 'ALL'; }
+		if(in_array($SHOPNAME, $userespnose)){	$SHOPNAME = 'ALL'; }
 	
 		if($CITY != "" and $CITY != 'ALL' )
 		{ 

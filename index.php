@@ -287,6 +287,7 @@ if($method == 'POST')
 				{$show_dlr = "";} else {$show_dlr = "Worth of $";}
 				 $distext .= "\r\n";
 				$speech .= $distext;
+				$distext="";
 				
 			}
 			if($CITY !="" 	|| $ENT_CITY !="")	{ $discity = " for city "; } else { $discity = ""; }

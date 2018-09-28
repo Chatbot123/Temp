@@ -147,37 +147,37 @@ if($method == 'POST')
 		if(in_array($CATEGORY, $userespnose)){	$CATEGORY = 'ALL';}
 		if(in_array($ARTICLE, $userespnose)){	$ARTICLE = 'ALL'; }
 	
-		if($CITY!="" or $CITY != 'ALL' )
+		if($CITY != "" and $CITY != 'ALL' )
 		{ 
 			$xsjs_url .= "&CITY=$CITY"; 
 			$ENT_CITY = "city";
 		}
 	
-		if($STATE!="" or $STATE !='ALL' )
+		if($STATE!="" and $STATE !='ALL' )
 		 { 
 			$xsjs_url .= "&STATE=$STATE";
 		  	$ENT_STATE = "state";
 		 }
 	
-		if($SHOPNAME!="" or $SHOPNAME != 'ALL' )
+		if($SHOPNAME!="" and $SHOPNAME != 'ALL' )
 		{
 			$xsjs_url .= "&SHOPNAME=$SHOPNAME"; 
 			$ENT_SHOP = "shop";
 		}
 	
-		if($FAMILY!="" or $FAMILY != 'ALL' )
+		if($FAMILY!="" and $FAMILY != 'ALL' )
 		{ 
 			$xsjs_url .= "&FAMILY=$FAMILY";
 			$ENT_FAM = "family";
 		}
 	
-		if($CATEGORY!="" or $CATEGORY != 'ALL' )
+		if($CATEGORY!="" and $CATEGORY != 'ALL' )
 		{ 
 			$xsjs_url .= "&CATEGORY=$CATEGORY"; 
 			$ENT_CAT = "category";
 		}
 	
-		if($ARTICLE!="" or $ARTICLE != 'ALL')	
+		if($ARTICLE!="" and $ARTICLE != 'ALL')	
 		 { 
 			$xsjs_url .= "&ARTICLE=$ARTICLE"; 
 		 	$ENT_ARTICLE = "article";

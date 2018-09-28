@@ -6,7 +6,7 @@ if($method == 'POST')
 	$requestBody = file_get_contents('php://input');
 	$json = json_decode($requestBody);
 	if(isset($json->queryResult->parameters->command))
-		{	$com = $json->queryResult->parameters->command; } else {$com = '0';}
+		{	$com = $json->queryResult->parameters->command; } else {$com = "";}
 	
 	$com = strtolower($com);
 	
@@ -184,6 +184,11 @@ if($method == 'POST')
 			$xsjs_url .= "&ARTICLE=$ARTICLE"; 
 		 	$ENT_ARTICLE = "article";
 		 }
+		if($com!="")	
+		 { 
+			$xsjs_url .= "&COMMAND=$com";
+		 	
+		 }
 	
 		if($YR=="" )		{	$YR='0'; 	}
 		if($MTH=="" )		{	$MTH='0';	}
@@ -222,8 +227,8 @@ if($method == 'POST')
 		$xsjs_url .= "&MTH=$MTH";
 		$xsjs_url .= "&QTR=$QTR";
 		$xsjs_url .= "&NUM=$NUM";
-		$xsjs_url .= "&COMMAND=$com";
-	echo $xsjs_url;
+		
+	//echo $xsjs_url;
 		//if($action == 'HighLowValues')
 		//{
 			$username    = "SANYAM_K";

@@ -139,71 +139,62 @@ if($method == 'POST')
 		if (in_array($ARTICLE, $useres)) {$ARTICLE='0'; $ENT_ARTICLE ="";}    
 		    
 		$userespnose = array("EACH", "EVERY","ALL");
-		if(in_array($YR, $userespnose))
-		{
-			$YR = 'ALL';
-		}
-		if(in_array($QTR, $userespnose))
-		{
-			$QTR = 'ALL';
-		}
+		if(in_array($YR, $userespnose))	{ $YR = 'ALL';	}
+		if(in_array($QTR, $userespnose)){ $QTR = 'ALL';	}
+		if(in_array($MTH, $userespnose)){ $MTH = 'ALL';	}
+		if(in_array($CITY, $userespnose)){ $CITY = 'ALL'; }
+		if(in_array($FAMILY, $userespnose)){ $FAMILY = 'ALL'; }
+		if(in_array($CATEGORY, $userespnose)){	$CATEGORY = 'ALL';}
+		if(in_array($ARTICLE, $userespnose)){	$ARTICLE = 'ALL'; }
 	
-		if(in_array($MTH, $userespnose))
-		{
-			$MTH = 'ALL';
-		}
-		
-		if(in_array($CITY, $userespnose))
-		{
-			$CITY = 'ALL';
-		}
-		if(in_array($FAMILY, $userespnose))
-		{
-			$FAMILY = 'ALL';
-		}
-		
-		
-		if(in_array($CATEGORY, $userespnose))
-		{
-			$CATEGORY = 'ALL';
-		}
-		
-		
-		if(in_array($ARTICLE, $userespnose))
-		{
-			$ARTICLE = 'ALL';
+		if($CITY!="" or $CITY != 'ALL' )
+		{ 
+			$xsjs_url .= "&CITY=$CITY"; 
+			$ENT_CITY = "city";
 		}
 	
-		if($CITY=="" or $CITY == 'ALL' )
-		{$CITY='0';  } else { $xsjs_url .= "&CITY=$CITY"; }
+		if($STATE!="" or $STATE !='ALL' )
+		 { 
+			$xsjs_url .= "&STATE=$STATE";
+		  	$ENT_STATE = "state";
+		 }
 	
-		if($STATE=="" or $STATE =='ALL' )
-		{$STATE='0'; } else { $xsjs_url .= "&STATE=$STATE"; }
+		if($SHOPNAME!="" or $SHOPNAME != 'ALL' )
+		{
+			$xsjs_url .= "&SHOPNAME=$SHOPNAME"; 
+			$ENT_SHOP = "shop";
+		}
 	
-		if($SHOPNAME=="" or $SHOPNAME == 'ALL' )
-		{$SHOPNAME='0';	} else { $xsjs_url .= "&SHOPNAME=$SHOPNAME"; }
+		if($FAMILY!="" or $FAMILY != 'ALL' )
+		{ 
+			$xsjs_url .= "&FAMILY=$FAMILY";
+			$ENT_FAM = "family";
+		}
 	
-		if($FAMILY=="" or $FAMILY == 'ALL' )
-		{$FAMILY='0'; } else { $xsjs_url .= "&FAMILY=$FAMILY"; }
+		if($CATEGORY!="" or $CATEGORY != 'ALL' )
+		{ 
+			$xsjs_url .= "&CATEGORY=$CATEGORY"; 
+			$ENT_CAT = "category";
+		}
 	
-		if($CATEGORY=="" or $CATEGORY == 'ALL' )
-		{$CATEGORY='0'; } else { $xsjs_url .= "&CATEGORY=$CATEGORY"; }
-	
-		if($ARTICLE=="" or $ARTICLE == 'ALL')	
-		{$ARTICLE='0'; 	}  else { $xsjs_url .= "&ARTICLE=$ARTICLE"; }
+		if($ARTICLE!="" or $ARTICLE != 'ALL')	
+		 { 
+			$xsjs_url .= "&ARTICLE=$ARTICLE"; 
+		 	$ENT_ARTICLE = "article";
+		 }
 	
 		if($YR=="" )		{	$YR='0'; 	}
 		if($MTH=="" )		{	$MTH='0';	}
 		if($QTR=="" )		{	$QTR='0'; 	}
 		
-		if($ENT_CITY=="" )	{	$ENT_CITY='0';	} else { $xsjs_url .= "&ENT_CITY=$ENT_CITY"; }
-		if($ENT_STATE=="" )	{	$ENT_STATE='0'; } else { $xsjs_url .= "&ENT_STATE=$ENT_STATE"; }
-		if($ENT_SHOP=="" )	{	$ENT_SHOP='0';	} else { $xsjs_url .= "&ENT_SHOP=$ENT_SHOP"; }
-		if($ENT_FAM=="" )	{	$ENT_FAM='0';	} else { $xsjs_url .= "&ENT_FAM=$ENT_FAM"; }
-		if($ENT_CAT=="" )	{	$ENT_CAT='0';	} else { $xsjs_url .= "&ENT_CAT=$ENT_CAT"; }
-		if($ENT_ARTICLE=="" )	{	$ENT_ARTICLE='0'; } else { $xsjs_url .= "&ENT_ARTICLE=$ENT_ARTICLE"; }
-		if($ENT_TOP_BOT=="" )	{	$ENT_TOP_BOT='0'; } else { $xsjs_url .= "&ENT_TOP_BOT=$ENT_TOP_BOT"; }
-		if($ENT_MEASURE=="" )	{	$ENT_MEASURE='0'; } else { $xsjs_url .= "&ENT_MEASURE=$ENT_MEASURE";}
+		if($ENT_CITY!="" )	 { $xsjs_url .= "&ENT_CITY=$ENT_CITY"; }
+		if($ENT_STATE!="" )	 { $xsjs_url .= "&ENT_STATE=$ENT_STATE"; }
+		if($ENT_SHOP!="" )	 { $xsjs_url .= "&ENT_SHOP=$ENT_SHOP"; }
+		if($ENT_FAM!="")	{ $xsjs_url .= "&ENT_FAM=$ENT_FAM"; }
+		if($ENT_CAT!="")	{ $xsjs_url .= "&ENT_CAT=$ENT_CAT"; }
+		if($ENT_ARTICLE!="" )	{ $xsjs_url .= "&ENT_ARTICLE=$ENT_ARTICLE"; }
+		if($ENT_TOP_BOT!="")	{ $xsjs_url .= "&ENT_TOP_BOT=$ENT_TOP_BOT"; }
+		if($ENT_MEASURE!="" )	 { $xsjs_url .= "&ENT_MEASURE=$ENT_MEASURE";}
 		if($NUM == "") 		{	$NUM='0'; } 
 		$top_array =  array("HIGHEST","MAXIMUM","LOWEST","MINIMUM");
 		if (in_array($ENT_TOP_BOT, $top_array)) 
@@ -296,12 +287,12 @@ if($method == 'POST')
 				$speech .= $distext;
 				
 			}
-			if($CITY !='0' 	|| $ENT_CITY != '0')	{ $discity = " for city "; } else { $discity = ""; }
-			if($STATE !='0' || $ENT_STATE != '0'){ $disstate = " in state "; } else { $disstate = ""; }
-			if($FAMILY !='0' || $ENT_FAM != '0'){ $disfamily = " family of product sold "; } else {$disfamily = ""; }
-            		if($CATEGORY !='0' || $ENT_CAT != '0'){ $discategory = " category sold "; }	else { $discategory = ""; }
-            		if($ARTICLE !='0' || $ENT_ARTICLE != '0'){$disarticle = " article sold ";} else	{ $disarticle = ""; }
-			if($SHOPNAME != '0' || $ENT_SHOP != '0') { $disshop = " of shop "; } else{	$disshop = "";	}
+			if($CITY !="" 	|| $ENT_CITY !="")	{ $discity = " for city "; } else { $discity = ""; }
+			if($STATE !="" || $ENT_STATE !=""){ $disstate = " in state "; } else { $disstate = ""; }
+			if($FAMILY !="" || $ENT_FAM !=""){ $disfamily = " family of product sold "; } else {$disfamily = ""; }
+            		if($CATEGORY !="" || $ENT_CAT !=""){ $discategory = " category sold "; }	else { $discategory = ""; }
+            		if($ARTICLE !="" || $ENT_ARTICLE !=""){$disarticle = " article sold ";} else	{ $disarticle = ""; }
+			if($SHOPNAME !="" || $ENT_SHOP !="") { $disshop = " of shop "; } else{	$disshop = "";	}
 			if($YR != '0')	{      $disyear = " for year ";} else {$disyear = "";}
 			if($QTR != '0')	{      $disqtr = " in quarter ";} else {$disqtr = "";}
 			if($MTH != '0')	{      $dismth = " for month ";} else {$dismth = "";}

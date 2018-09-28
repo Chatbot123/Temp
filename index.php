@@ -193,7 +193,7 @@ if($method == 'POST')
 		if($YR=="" )		{	$YR='0'; 	}
 		if($MTH=="" )		{	$MTH='0';	}
 		if($QTR=="" )		{	$QTR='0'; 	}
-		
+		if($action!="" )	 { $xsjs_url .= "&ACTION=$action"; }
 		if($ENT_CITY!="" )	 { $xsjs_url .= "&ENT_CITY=$ENT_CITY"; }
 		if($ENT_STATE!="" )	 { $xsjs_url .= "&ENT_STATE=$ENT_STATE"; }
 		if($ENT_SHOP!="" )	 { $xsjs_url .= "&ENT_SHOP=$ENT_SHOP"; }

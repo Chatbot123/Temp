@@ -228,7 +228,7 @@ if($method == 'POST')
 		$xsjs_url .= "&QTR=$QTR";
 		$xsjs_url .= "&NUM=$NUM";
 		
-	echo $xsjs_url;
+	//echo $xsjs_url;
 		//if($action == 'HighLowValues')
 		//{
 			$username    = "SANYAM_K";

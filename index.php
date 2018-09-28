@@ -16,7 +16,7 @@ if($method == 'POST')
 	if(isset($json->queryResult->action))
 		{	$action = $json->queryResult->action; } else {$action = '0';}
 	
-	if($action == 'MyPreviousIntent' and $myaction == 'HighLowValues' ){$com = 'HighLowValues';}
+	if($action == 'MyPreviousIntent' and $myaction == 'HighLowValues' ){$action = 'HighLowValues';}
 	
 	if(($com == 'liststates' || $com == 'shoplist' || $com == 'listcity' || $com == 'listfamily' || $com == 'listcategory' || $com == 'listarticle' || $com == 'listyear') && $my_action == 'amountsold' && $action == '0')
 	{$com = "amountsold";}
@@ -263,7 +263,7 @@ if($method == 'POST')
 		$someobj = json_decode($json,true);
 		}*/
 	//echo $json_url;
-		if($com == 'amountsold' or $com == 'margin' or $com == 'qtysold' or $action == 'HighLowValues' or $com == 'HighLowValues' )
+		if($com == 'amountsold' or $com == 'margin' or $com == 'qtysold' or $action == 'HighLowValues'  )
 		{
 			
 			if ($com == 'amountsold' )
@@ -284,7 +284,7 @@ if($method == 'POST')
 				$distext .= "\r\n";
 				$show_dlr = "";
 			}
-			if ($action == 'HighLowValues' or $com == 'HighLowValues')
+			if ($action == 'HighLowValues')
 			{
 				
 				$distext = "$ENT_TOP_BOT $disnum $ENT_MEASURE $disval ";

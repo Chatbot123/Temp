@@ -28,7 +28,7 @@ if($method == 'POST')
 	{$com = "margin";}
 	
 	//to execute xsjs for high and low measures
-	$xsjs_url = "http://74.201.240.43:8000/ChatBot/Sample_chatbot/EFASHION_TEST.xsjs?";
+	$xsjs_url = "http://74.201.240.43:8000/ChatBot/Sample_chatbot/EFASHION_DEV_TOP.xsjs?";
 		
 	
 		if(isset($json->queryResult->parameters->STATE))
@@ -139,26 +139,24 @@ if($method == 'POST')
 		if (in_array($ARTICLE, $useres)) {$ARTICLE='0'; $ENT_ARTICLE ="";}    
 		    
 		$userespnose = array("EACH", "EVERY","ALL");
-		if(in_array($STATE, $userespnose))
-		{
-			$STATE = 'ALL';
-		}
-	
-		if(in_array($SHOPNAME, $userespnose))
-		{
-			$SHOPNAME = 'ALL';
-		}
-		
-		if(in_array($CITY, $userespnose))
-		{
-			$CITY = 'ALL';
-		}
-		
 		if(in_array($YR, $userespnose))
 		{
 			$YR = 'ALL';
 		}
+		if(in_array($QTR, $userespnose))
+		{
+			$QTR = 'ALL';
+		}
+	
+		if(in_array($MTH, $userespnose))
+		{
+			$MTH = 'ALL';
+		}
 		
+		/*if(in_array($CITY, $userespnose))
+		{
+			$CITY = 'ALL';
+		}
 		if(in_array($FAMILY, $userespnose))
 		{
 			$FAMILY = 'ALL';
@@ -174,14 +172,14 @@ if($method == 'POST')
 		if(in_array($ARTICLE, $userespnose))
 		{
 			$ARTICLE = 'ALL';
-		}
+		}*/
 	
-		if($CITY=="" )		{	$CITY='0';  }
-		if($STATE=="" )		{	$STATE='0'; }
-		if($SHOPNAME=="" )	{	$SHOPNAME='0'; 	}
-		if($FAMILY=="" )	{	$FAMILY='0'; 	}
-		if($CATEGORY=="" )	{	$CATEGORY='0'; 	}
-		if($ARTICLE=="" )	{	$ARTICLE='0'; 	}
+		if($CITY=="" )		{	$CITY='0';  } else { $xsjs_url .= "&CITY=$CITY"; }
+		if($STATE=="" )		{	$STATE='0'; } else { $xsjs_url .= "&STATE=$STATE"; }
+		if($SHOPNAME=="" )	{	$SHOPNAME='0'; 	} else { $xsjs_url .= "&SHOPNAME=$SHOPNAME"; }
+		if($FAMILY=="" )	{	$FAMILY='0'; 	} else { $xsjs_url .= "&FAMILY=$FAMILY"; }
+		if($CATEGORY=="" )	{	$CATEGORY='0'; 	} else { $xsjs_url .= "&CATEGORY=$CATEGORY"; }
+		if($ARTICLE=="" )	{	$ARTICLE='0'; 	}  else { $xsjs_url .= "&ARTICLE=$ARTICLE"; }
 		if($YR=="" )		{	$YR='0'; 	}
 		if($MTH=="" )		{	$MTH='0';	}
 		if($QTR=="" )		{	$QTR='0'; 	}
@@ -207,21 +205,22 @@ if($method == 'POST')
 			$disnum=$NUM;
 			$disval = "VALUES ARE ";
 		}
-		$xsjs_url .= "&CITY=$CITY";
+		/*$xsjs_url .= "&CITY=$CITY";
 		
 		
 		$xsjs_url .= "&STATE=$STATE";
 		$xsjs_url .= "&SHOPNAME=$SHOPNAME";
 		$xsjs_url .= "&FAMILY=$FAMILY";
 		$xsjs_url .= "&CATEGORY=$CATEGORY";
-		$xsjs_url .= "&ARTICLE=$ARTICLE";
+		$xsjs_url .= "&ARTICLE=$ARTICLE";*/
 		$xsjs_url .= "&YR=$YR";
 		$xsjs_url .= "&MTH=$MTH";
 		$xsjs_url .= "&QTR=$QTR";
 		$xsjs_url .= "&NUM=$NUM";
+		$xsjs_url .= "&COMMAND=$com";
 	//echo $xsjs_url;
-		if($action == 'HighLowValues')
-		{
+		//if($action == 'HighLowValues')
+		//{
 			$username    = "SANYAM_K";
 			$password    = "Welcome@123";
 			$ch      = curl_init( $xsjs_url );
@@ -234,7 +233,7 @@ if($method == 'POST')
 			curl_setopt_array( $ch, $options );
 			$json = curl_exec( $ch );
 			$someobj = json_decode($json,true);
-		}
+		/*}
 		else
 		{
 		
@@ -252,7 +251,7 @@ if($method == 'POST')
     		curl_setopt_array( $ch, $options );
 		$json = curl_exec( $ch );
 		$someobj = json_decode($json,true);
-		}
+		}*/
 	//echo $json_url;
 		if($com == 'amountsold' or $com == 'margin' or $com == 'qtysold' or $action == 'HighLowValues')
 		{

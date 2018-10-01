@@ -17,6 +17,7 @@ if($method == 'POST')
 		{	$action = $json->queryResult->action; } else {$action = '0';}
 	
 	if($action == 'MyPreviousIntent' and $myaction == 'HighLowValues' ){$action = 'HighLowValues';}
+	if($action == 'MyPreviousIntent' and $myaction == '0' ){$action = '';}
 	
 	if(($com == 'liststates' || $com == 'shoplist' || $com == 'listcity' || $com == 'listfamily' || $com == 'listcategory' || $com == 'listarticle' || $com == 'listyear') && $my_action == 'amountsold' && $action == '0')
 	{$com = "amountsold";}
